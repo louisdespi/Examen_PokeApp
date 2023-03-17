@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:PokeApp2.Models"
+             xmlns:viewmodels="clr-namespace:PokeApp2.ViewModels"
+             x:Class="PokeApp2.Views.VersionGroupPage"
+             x:DataType="viewmodels:VersionGroupViewModel"
+             Title="{Binding Title}">
+    <ListView ItemsSource="{Binding VersionGroups}">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:VersionGroup">
+                <TextCell 
+                    Text="{Binding Name}"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:VersionGroupViewModel}}, Path=GoToPokedexesCommand}"
+                    CommandParameter="{Binding .}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

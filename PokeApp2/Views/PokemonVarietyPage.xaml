@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:PokeApp2.Models"
+             xmlns:viewmodels="clr-namespace:PokeApp2.ViewModels"
+             x:Class="PokeApp2.Views.PokemonVarietyPage"
+             x:DataType="viewmodels:PokemonVarietyViewModel"
+             Title="{Binding Title}">
+    <ListView ItemsSource="{Binding Pokemons}"
+              HasUnevenRows="true"
+              > <!--ItemSelected="OnItemSelected" -->
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:Pokemon">
+                <ViewCell>
+                    <VerticalStackLayout Padding="2">
+                        <Label TextColor="Blue" Text="{Binding Name}" HorizontalOptions="Center" FontSize="Large"/>
+                        <Image
+                        Aspect="AspectFit"
+                        Source="{Binding Sprites.FrontDefault}"
+                        WidthRequest="128"
+                        HeightRequest="128" />
+                    </VerticalStackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

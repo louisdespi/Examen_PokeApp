@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:PokeApp2.Models"
+             xmlns:viewmodels="clr-namespace:PokeApp2.ViewModels"
+             x:Class="PokeApp2.Views.PokedexPage"
+             x:DataType="viewmodels:PokedexViewModel"
+             Title="{Binding Title}">
+    <ListView ItemsSource="{Binding Pokedexes}"
+              HasUnevenRows="true"
+              SelectedItem="{Binding SelectedItem}"
+              ItemSelected="OnItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:Pokedex">
+                <ViewCell>
+                    <VerticalStackLayout Padding="10">
+                        <Label TextColor="blue" Text="{Binding Names.FrenchOrEnglish}" VerticalOptions="Start" HorizontalOptions="Start"/>
+                        <Label TextColor="gray" Text="{Binding CountEntries, StringFormat='{0} Entrée(s)'}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                        <Label TextColor="gray"  Text="{Binding Descriptions.FrenchOrEnglish}" VerticalOptions="End" HorizontalOptions="Start" LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

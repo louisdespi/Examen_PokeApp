@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:PokeApp2.Models"
+             xmlns:viewmodels="clr-namespace:PokeApp2.ViewModels"
+             x:Class="PokeApp2.Views.PokemonEntryPage"
+             x:DataType="viewmodels:PokemonEntryViewModel"
+             Title="{Binding Title}">
+    <ListView ItemsSource="{Binding PokemonEntries}"
+              IsRefreshing="{Binding IsRefreshing}">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:PokemonEntry">
+                <TextCell 
+                    Text="{Binding PokemonSpecie.Names.FrenchOrEnglish}"
+                    Detail="{Binding EntryNumber}"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PokemonEntryViewModel}}, Path=GoToPokemonVarietiesCommand}"
+                    CommandParameter="{Binding .}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
