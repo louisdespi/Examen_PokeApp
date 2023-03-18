@@ -23,9 +23,9 @@ public partial class PokemonVarietyPage : ContentPage
     {
         if (e.SelectedItem == null)
             return;
-        var selected = e.SelectedItem as Pokedex;
+        var selected = e.SelectedItem as Pokemon;
         // Faire quelque chose avec l'élément sélectionné
-        //vm.GoToPokemonEntriesGroupsCommand.Execute(selected);
+        vm.GoToPokemonCommand.Execute(selected);
 
         // Réinitialiser la sélection de la liste
         ((ListView)sender).SelectedItem = null;

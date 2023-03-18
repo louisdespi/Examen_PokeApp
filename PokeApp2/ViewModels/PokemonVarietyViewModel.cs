@@ -8,6 +8,8 @@
         PokemonEntry pokemonEntry;
         [ObservableProperty]
         ObservableCollection<Pokemon> pokemons;
+        [ObservableProperty]
+        Pokedex selectedItem;
         public bool FirstRun { get; set; } = true;
         public PokemonVarietyViewModel(PokeApiService service)
         {
@@ -45,15 +47,16 @@
             }
         }
 
-        /*[RelayCommand]
-        async Task GoToPokedexesAsync(PokemonEntry pokemonEntry)
+        [RelayCommand]
+        async Task GoToPokemonAsync(Pokemon pokemon)
         {
-            if (pokemonEntry is null)
+            if (pokemon is null)
                 return;
-            await Shell.Current.GoToAsync(nameof(PokedexPage), true, new Dictionary<string, object>
+            await Shell.Current.GoToAsync(nameof(PokemonPage), true, new Dictionary<string, object>
             {
-                { "VersionGroup", versionGroup },
+                { "PokemonEntry", PokemonEntry },
+                { "Pokemon", pokemon },
             });
-        }*/
+        }
     }
 }

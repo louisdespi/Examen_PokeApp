@@ -9,5 +9,8 @@
         [JsonConverter(typeof(TranslationConverter))]
         public Translations Names { get; set; }
         public List<PokemonVariety> Varieties { get; set; }
+        [JsonConverter(typeof(FlavorTextEntriesConverter))]
+        [JsonPropertyName("flavor_text_entries")]
+        public FlavorTextEntries FlavorTextEntries { get; set; }
     }
 }

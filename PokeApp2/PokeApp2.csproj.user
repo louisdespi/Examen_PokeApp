@@ -35,6 +35,9 @@
     <MauiXaml Update="Views\PokemonEntryPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\PokemonPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\PokemonVarietyPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

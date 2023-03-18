@@ -9,6 +9,7 @@
             Routing.RegisterRoute(nameof(PokedexPage), typeof(PokedexPage));
             Routing.RegisterRoute(nameof(PokemonEntryPage), typeof(PokemonEntryPage));
             Routing.RegisterRoute(nameof(PokemonVarietyPage), typeof(PokemonVarietyPage));
+            Routing.RegisterRoute(nameof(PokemonPage), typeof(PokemonPage));
         }
     }
 }

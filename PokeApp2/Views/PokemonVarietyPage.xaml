@@ -6,22 +6,38 @@
              x:Class="PokeApp2.Views.PokemonVarietyPage"
              x:DataType="viewmodels:PokemonVarietyViewModel"
              Title="{Binding Title}">
-    <ListView ItemsSource="{Binding Pokemons}"
-              HasUnevenRows="true"
-              > <!--ItemSelected="OnItemSelected" -->
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="models:Pokemon">
-                <ViewCell>
-                    <VerticalStackLayout Padding="2">
-                        <Label TextColor="Blue" Text="{Binding Name}" HorizontalOptions="Center" FontSize="Large"/>
-                        <Image
-                        Aspect="AspectFit"
-                        Source="{Binding Sprites.FrontDefault}"
-                        WidthRequest="128"
-                        HeightRequest="128" />
-                    </VerticalStackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <VerticalStackLayout Spacing="10" Padding="5">
+        <Frame
+            IsClippedToBounds="True"
+            CornerRadius="0"
+            BorderColor="Gray"
+            BackgroundColor="White">
+            <Label TextColor="Black" Text="{Binding PokemonEntry.PokemonSpecie.FlavorTextEntries.FrenchOrEnglish}"/>
+        </Frame>
+        <Border Stroke="Gray"
+                StrokeThickness="1">
+            <ListView
+                HeightRequest="550"
+                SeparatorColor="Gray"
+                ItemsSource="{Binding Pokemons}"
+                HasUnevenRows="true"
+                SelectedItem="{Binding SelectedItem}"
+                ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Pokemon">
+                        <ViewCell>
+                            <VerticalStackLayout Padding="2">
+                                <Label TextColor="Blue" Text="{Binding Name}" HorizontalOptions="Center" FontSize="Large"/>
+                                <Image
+                                    Aspect="AspectFit"
+                                    Source="{Binding Sprites.FrontDefault}"
+                                    WidthRequest="128"
+                                    HeightRequest="128" />
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+    </VerticalStackLayout>
 </ContentPage>

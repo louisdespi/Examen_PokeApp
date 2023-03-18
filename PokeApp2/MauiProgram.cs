@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PokeApp2
 {
@@ -15,6 +15,8 @@ namespace PokeApp2
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            //builder.Services.AddSingleton<SQLiteConnection>(provider => new SQLiteConnection("Data Source=database.db; Version = 3; New = True; Compress = True;"));
+
             builder.Services.AddSingleton<PokeApiService>();
             builder.Services.AddSingleton<GenerationPage>();
             builder.Services.AddSingleton<GenerationViewModel>();
@@ -30,6 +32,9 @@ namespace PokeApp2
 
             builder.Services.AddTransient<PokemonVarietyPage>();
             builder.Services.AddTransient<PokemonVarietyViewModel>();
+
+            builder.Services.AddTransient<PokemonPage>();
+            builder.Services.AddTransient<PokemonViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();
